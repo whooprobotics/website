@@ -1,103 +1,148 @@
+import { Metadata } from "next";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <main className="flex flex-col justify-center">
+      {/* Title Section */}
+      <div className="relative flex flex-col items-center justify-center w-full h-70 overflow-hidden">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/stockImages/title.png"
+          alt=""
+          fill
+          style={{ objectFit: "cover" }}
+          className="absolute inset-0 z-0"
           priority
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <h1 className="relative z-10 text-7xl font-primary font-bold text-white drop-shadow-2xl">AGGIE ROBOTICS</h1>
+      </div>
+      {/* We are Section */}
+      <div className="flex flex-col justify-center w-full h-60">
+        <div className="grid grid-rows-1 grid-cols-3 mx-10 h-70 items-center">
+          <div className="flex flex-col justify-center gap-5 mx-5 col-span-2">
+            <h2 className="text-5xl font-primary text-primary">WE ARE</h2>
+            <p className="text-lg font-secondary">
+              Aggie Robotics is a recognized student organization at Texas A&M University. We focus on developing STEAM skills for Texas A&M Students and within the surrounding Bryan/College Station area.
+            </p>
+          </div>
+          <div className="flex items-center justify-center">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            src="/logos/Black.png"
+            alt=""
+            width={1280} height={1855}
+            className="w-auto h-50"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      {/* Past Year Robots Section */}
+      <div className="flex flex-col justify-center w-full h-90 bg-primary">
+        <div className="grid grid-rows-1 grid-cols-4 mx-10 h-70 items-center text-white">
+          <div className="flex flex-col justify-center gap-5 mx-5">
+            <div className="flex items-center justify-center">
+              <Image
+              src="/stockImages/2018-19-robot.jpg"
+              alt=""
+              width={1280} height={1280}
+              className="w-auto rounded-xl h-55 hover:scale-105 transition-transform"
+              />
+            </div>
+            <p className="text-lg font-secondary text-center">
+              2018-2019: Turning Point
+            </p>
+          </div>
+          <div className="flex flex-col justify-center gap-5 mx-5">
+            <div className="flex items-center justify-center">
+              <Image
+              src="/stockImages/2019-20-robot.jpg"
+              alt=""
+              width={1280} height={1280}
+              className="w-auto rounded-xl h-55 hover:scale-105 transition-transform"
+              />
+            </div>
+            <p className="text-lg font-secondary text-center">
+              2019-2020: Tower Takeover
+            </p>
+          </div>
+          <div className="flex flex-col justify-center gap-5 mx-5">
+            <div className="flex items-center justify-center">
+              <Image
+              src="/stockImages/2020-21-robot.jpg"
+              alt=""
+              width={1280} height={1280}
+              className="w-auto rounded-xl h-55 hover:scale-105 transition-transform"
+              />
+            </div>
+            <p className="text-lg font-secondary text-center">
+              2020-2021: Change Up
+            </p>
+          </div>
+          <div className="flex flex-col justify-center gap-5 mx-5">
+            <div className="flex items-center justify-center">
+              <Image
+              src="/stockImages/2021-22-robot.png"
+              alt=""
+              width={1280} height={1280}
+              className="w-auto rounded-xl h-55 hover:scale-105 transition-transform"
+              />
+            </div>
+            <p className="text-lg font-secondary text-center">
+              2021-2022: Tipping Point
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* Our Programs Title */}
+      <div className="flex flex-col justify-center w-full h-30 bg-black">
+        <div className="grid grid-rows-1 grid-cols-1 mx-10 h-70 items-center">
+          <div className="flex flex-col justify-center gap-5 mx-5">
+            <h2 className="text-5xl font-primary text-white">OUR PROGRAMS</h2>
+          </div>
+        </div>
+      </div>
+      {/* VEXU Section */}
+      <div className="flex flex-col justify-center w-full h-55">
+        <div className="grid grid-rows-1 grid-cols-3 mx-10 h-70 items-center">
+          <div className="flex flex-col justify-center gap-5 mx-5 col-span-2">
+            <h2 className="text-5xl font-primary text-primary">VEX University Robotics</h2>
+            <p className="text-lg font-secondary">
+              Aggie Robotics competes in the Vex U Robotics Competition. We are a highly competitive organization, with 2 teams that are both within the top 10 in the world. Our team identifiers are "WHOOP" and "WHOOP8".
+            </p>
+          </div>
+          <div className="flex items-center justify-center">
+            <Image
+            src="/stockImages/vexu-logo.png"
+            alt=""
+            width={900} height={900}
+            className="w-auto h-55"
+            />
+          </div>
+        </div>
+      </div>
+      {/* Combat Section */}
+      <div className="flex flex-col justify-center w-full h-55">
+        <div className="grid grid-rows-1 grid-cols-3 mx-10 h-70 items-center">
+          <div className="flex flex-col justify-center gap-5 mx-5 col-span-2">
+            <h2 className="text-5xl font-primary text-primary">Combat Robotics</h2>
+            <p className="text-lg font-secondary">
+              For the first time, Aggie Robotics is competing in various Robot Combat Events! Our team identifier is "WHOOP5".
+            </p>
+          </div>
+          <div className="flex items-center justify-center">
+            <Image
+            src="/stockImages/rce-logo.jpg"
+            alt=""
+            width={900} height={900}
+            className="w-auto h-50"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Aggie Robotics | 2025-2026",
+  description: "The official website of Aggie Robotics at Texas A&M University!",
+};
