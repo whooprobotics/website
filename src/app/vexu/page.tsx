@@ -33,18 +33,18 @@ export default function VEXU() {
           <div className="flex flex-col gap-4 items-center justify-center">
             <div className="flex items-center justify-center">
               <Image
-              src="/stockImages/outreach-mentor.jpg"
+              src="/stockImages/pushback-field.jpg"
               alt=""
-              width={1024} height={651}
-              className="w-auto h-55"
+              width={1500} height={844}
+              className="w-auto h-70"
               />
             </div>
-            <h2 className="text-sm font-secondar">Members hosting Aggieland Classic!</h2>
+            {/* <h2 className="text-sm font-secondar">Members hosting Aggieland Classic!</h2> */}
           </div>
           <div className="flex flex-col justify-center gap-5 mx-5">
             <h2 className="text-5xl font-primary">2025-2026 PUSHBACK</h2>
             <p className="text-lg font-secondary">
-              Pushback is played on a 12ft x 12ft square field
+              Pushback is played on a 12' x 12' square field where each team will build two robots to score octadecagon blocks into various sized goals, control those goals, and clear block loaders on the sides of the field for various amounts of points. Within the last 10 seconds of the match, robots will park in their respective alliance's colored zone to earn additional points.
             </p>
           </div>
         </div>
