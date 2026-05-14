@@ -1,5 +1,5 @@
-import "@/src/app/(main)/globals.css";
-import Navbar from "@/src/app/components/Navbar";
+import "@/src/app/globals.css";
+import Navbar from "@/src/app/components/wiki/Navbar";
 import Footer from "@/src/app/components/Footer";
 
 import type { Metadata } from "next";
@@ -39,7 +39,10 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
