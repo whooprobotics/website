@@ -1,6 +1,6 @@
-import "@/app/globals.css";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
+import "@/src/app/globals.css";
+import Navbar from "@/src/app/components/Navbar";
+import Footer from "@/src/app/components/Footer";
 
 import type { Metadata } from "next";
 import { Oswald, Roboto } from "next/font/google";

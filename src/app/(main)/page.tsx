@@ -27,7 +27,7 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-center">
             <Image
-            src="/logos/Black.png"
+            src="/logos/raw/Black.png"
             alt=""
             width={1280} height={1855}
             className="w-auto h-50"
