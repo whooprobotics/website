@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model users {
+  user_id    Int     @id @unique(map: "unique_ids") @default(autoincrement())
+  email      String? @db.VarChar(320)
+  first_name String?
+  last_name  String?
+  team       String? @db.VarChar(10)
+  role       String? @db.VarChar(10)
+  password   String? @db.VarChar(64)
+}
