@@ -18,7 +18,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Aggie Robotics | 2025-2026",
+  title: "Aggie Robotics | 2026-2027",
   description: "The official website of Aggie Robotics at Texas A&M University!",
   icons: {
     icon: [

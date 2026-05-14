@@ -106,7 +106,7 @@ export default function Home() {
           <div className="flex flex-col justify-center gap-5 mx-5 col-span-2">
             <h2 className="text-5xl font-primary text-primary">VEX University Robotics</h2>
             <p className="text-lg font-secondary">
-              Aggie Robotics competes in the Vex U Robotics Competition. We are a highly competitive organization, with 2 teams that are both within the top 10 in the world. Our team identifiers are "WHOOP" and "WHOOP8".
+              Aggie Robotics competes in the Vex U Robotics Competition. Our team, WHOOP, is a highly competitive which is top 10 in the world and has won multiple awards at the World Championship. We are excited to continue our success in the upcoming season!
             </p>
           </div>
           <div className="flex items-center justify-center">
@@ -125,7 +125,7 @@ export default function Home() {
           <div className="flex flex-col justify-center gap-5 mx-5 col-span-2">
             <h2 className="text-5xl font-primary text-primary">Combat Robotics</h2>
             <p className="text-lg font-secondary">
-              For the first time, Aggie Robotics is competing in various Robot Combat Events! Our team identifier is "WHOOP5".
+              Aggie Robotics also is competing in various Robot Combat Events with multiple teams. We are excited to continue our success in the upcoming season!
             </p>
           </div>
           <div className="flex items-center justify-center">
@@ -138,11 +138,31 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* Marketing Section */}
+      <div className="flex flex-col justify-center w-full h-55">
+        <div className="grid grid-rows-1 grid-cols-3 mx-10 h-70 items-center">
+          <div className="flex flex-col justify-center gap-5 mx-5 col-span-2">
+            <h2 className="text-5xl font-primary text-primary">Marketing</h2>
+            <p className="text-lg font-secondary">
+              To help support our competition teams, Aggie Robotics has a marketing team that focuses on promoting our teams and events through media, outreach, and sponsorship. We are excited to continue growing our marketing efforts in the upcoming season!
+            </p>
+          </div>
+          <div className="flex items-center justify-center">
+            <Image
+            // src="/stockImages/vexu-logo.png" 
+            src="" // NEED PHOTO FOR THIS
+            alt=""
+            width={900} height={900}
+            className="w-auto h-55"
+            />
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
 
 export const metadata: Metadata = {
-  title: "Aggie Robotics | 2025-2026",
+  title: "Aggie Robotics | 2026-2027",
   description: "The official website of Aggie Robotics at Texas A&M University!",
 };
