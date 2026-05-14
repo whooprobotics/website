@@ -1,6 +1,6 @@
-import NotFoundBox from "@/app/components/NotFoundBox";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
+import NotFoundBox from "@/src/app/components/NotFoundBox";
+import Navbar from "@/src/app/components/Navbar";
+import Footer from "@/src/app/components/Footer";
 
 import { Metadata } from "next";
  
