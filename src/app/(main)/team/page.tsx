@@ -2,22 +2,23 @@ import { Metadata } from "next";
 import Image from "next/image";
 import {
   CURRENT_YEAR,
-  getLeadership,
-  getOfficersByGroup,
   LEADERSHIP_GROUPS,
   PROGRAM_HREFS,
 } from "@/src/content/leadership";
+import { getLeadership, getOfficersByGroup } from "@/src/lib/notion/leadership";
 import { getTeamPhoto } from "@/src/content/teamPhotos";
 import LeadershipGrid from "@/src/app/components/team/LeadershipGrid";
 import TeamBanner from "@/src/app/components/team/TeamBanner";
+
+export const revalidate = 3600;
 
 const EMPTY_MESSAGES: Record<string, string> = {
   Combat: "Combat officers will be announced soon.",
 };
 
-export default function Team() {
-  const board = getLeadership(CURRENT_YEAR, "Board");
-  const officersByGroup = getOfficersByGroup(CURRENT_YEAR);
+export default async function Team() {
+  const board = await getLeadership(CURRENT_YEAR, "Board");
+  const officersByGroup = await getOfficersByGroup(CURRENT_YEAR);
   const orgPhoto = getTeamPhoto(CURRENT_YEAR, "org");
   const boardPhoto = getTeamPhoto(CURRENT_YEAR, "board");
   const officersPhoto = getTeamPhoto(CURRENT_YEAR, "officers");

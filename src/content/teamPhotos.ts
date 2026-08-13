@@ -6,7 +6,7 @@ export const teamPhotos: TeamPhoto[] = [
     year: "2026-2027",
     group: "org",
     alt: "The Aggie Robotics organization",
-    src: "/team/org-25-26.png",
+    src: "/team/org-25-26.jpg",
   },
   {
     id: "board-25-26",

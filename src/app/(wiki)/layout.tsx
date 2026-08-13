@@ -4,7 +4,6 @@ import Footer from "@/src/app/components/Footer";
 
 import type { Metadata } from "next";
 import { Oswald, Roboto } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next"
 
 const oswald = Oswald({
   weight: ["400", "700"],

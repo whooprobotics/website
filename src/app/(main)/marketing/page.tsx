@@ -1,12 +1,15 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { CURRENT_YEAR, getOfficersByGroup } from "@/src/content/leadership";
+import { CURRENT_YEAR } from "@/src/content/leadership";
+import { getOfficersByGroup } from "@/src/lib/notion/leadership";
 import { getTeamPhoto } from "@/src/content/teamPhotos";
 import PersonCard from "@/src/app/components/team/PersonCard";
 import TeamBanner from "@/src/app/components/team/TeamBanner";
 
-export default function Marketing() {
-  const officers = getOfficersByGroup(CURRENT_YEAR).Marketing;
+export const revalidate = 3600;
+
+export default async function Marketing() {
+  const officers = (await getOfficersByGroup(CURRENT_YEAR)).Marketing;
   const teamPhoto = getTeamPhoto(CURRENT_YEAR, "Marketing");
 
   return (

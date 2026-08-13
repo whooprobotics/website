@@ -4,7 +4,6 @@ import Footer from "@/src/app/components/Footer";
 
 import type { Metadata } from "next";
 import { Oswald, Roboto } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next"
 
 const oswald = Oswald({
   weight: ["400", "700"],
@@ -49,7 +48,6 @@ export default function RootLayout({
           <main className="grow overflow-x-hidden">{children}</main>
           <Footer />
         </div>
-        <Analytics />
       </body>
     </html>
   );
