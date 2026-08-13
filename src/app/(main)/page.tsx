@@ -1,7 +1,12 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { CURRENT_YEAR } from "@/src/content/leadership";
+import { getTeamPhoto } from "@/src/content/teamPhotos";
 
 export default function Home() {
+  const marketingPhoto = getTeamPhoto(CURRENT_YEAR, "Marketing");
+
   return (
     <main className="flex flex-col justify-center">
       {/* Title Section */}
@@ -104,7 +109,9 @@ export default function Home() {
       <div className="flex flex-col justify-center w-full h-55">
         <div className="grid grid-rows-1 grid-cols-3 mx-10 h-70 items-center">
           <div className="flex flex-col justify-center gap-5 mx-5 col-span-2">
-            <h2 className="text-5xl font-primary text-primary">VEX University Robotics</h2>
+            <Link href="/vexu">
+              <h2 className="text-5xl font-primary text-primary hover:scale-105 transition-transform origin-left">VEX University Robotics</h2>
+            </Link>
             <p className="text-lg font-secondary">
               Aggie Robotics competes in the Vex U Robotics Competition. Our team, WHOOP, is a highly competitive which is top 10 in the world and has won multiple awards at the World Championship. We are excited to continue our success in the upcoming season!
             </p>
@@ -123,7 +130,9 @@ export default function Home() {
       <div className="flex flex-col justify-center w-full h-55">
         <div className="grid grid-rows-1 grid-cols-3 mx-10 h-70 items-center">
           <div className="flex flex-col justify-center gap-5 mx-5 col-span-2">
-            <h2 className="text-5xl font-primary text-primary">Combat Robotics</h2>
+            <Link href="/combat">
+              <h2 className="text-5xl font-primary text-primary hover:scale-105 transition-transform origin-left">Combat Robotics</h2>
+            </Link>
             <p className="text-lg font-secondary">
               Aggie Robotics also is competing in various Robot Combat Events with multiple teams. We are excited to continue our success in the upcoming season!
             </p>
@@ -142,19 +151,27 @@ export default function Home() {
       <div className="flex flex-col justify-center w-full h-55">
         <div className="grid grid-rows-1 grid-cols-3 mx-10 h-70 items-center">
           <div className="flex flex-col justify-center gap-5 mx-5 col-span-2">
-            <h2 className="text-5xl font-primary text-primary">Marketing</h2>
+            <Link href="/marketing">
+              <h2 className="text-5xl font-primary text-primary hover:scale-105 transition-transform origin-left">Marketing</h2>
+            </Link>
             <p className="text-lg font-secondary">
               To help support our competition teams, Aggie Robotics has a marketing team that focuses on promoting our teams and events through media, outreach, and sponsorship. We are excited to continue growing our marketing efforts in the upcoming season!
             </p>
           </div>
           <div className="flex items-center justify-center">
-            <Image
-            // src="/stockImages/vexu-logo.png" 
-            src="" // NEED PHOTO FOR THIS
-            alt=""
-            width={900} height={900}
-            className="w-auto h-55"
-            />
+            {marketingPhoto?.src ? (
+              <Image
+                src={marketingPhoto.src}
+                alt={marketingPhoto.alt}
+                width={900}
+                height={900}
+                className="w-auto h-55 object-cover rounded-xl"
+              />
+            ) : (
+              <div className="flex items-center justify-center w-40 h-40 rounded-xl bg-primary/15">
+                <span className="font-primary text-primary text-center px-2">Photo coming soon</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
