@@ -3,18 +3,7 @@ import Navbar from "@/src/app/components/wiki/Navbar";
 import Footer from "@/src/app/components/Footer";
 
 import type { Metadata } from "next";
-import { Oswald, Roboto } from "next/font/google";
-
-const oswald = Oswald({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  // variable: "--font-oswald",
-});
-const roboto = Roboto({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  // variable: "--font-roboto",
-});
+import { siteFontsClassName } from "@/src/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Aggie Robotics | 2025-2026",
@@ -38,7 +27,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
     <html lang="en">
-      <body>
+      <body className={siteFontsClassName}>
         <Navbar />
         {children}
       </body>

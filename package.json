@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "prebuild": "node scripts/compress-photos.mjs",
+    "compress-photos": "node scripts/compress-photos.mjs",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy -- --keep-vars",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload -- --keep-vars",
@@ -36,6 +38,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
     "prisma": "^7.8.0",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4.2.4",
     "typescript": "^5",
     "wrangler": "^4.123.0"

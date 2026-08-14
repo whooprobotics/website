@@ -3,18 +3,7 @@ import Navbar from "@/src/app/components/Navbar";
 import Footer from "@/src/app/components/Footer";
 
 import type { Metadata } from "next";
-import { Oswald, Roboto } from "next/font/google";
-
-const oswald = Oswald({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  // variable: "--font-oswald",
-});
-const roboto = Roboto({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  // variable: "--font-roboto",
-});
+import { siteFontsClassName } from "@/src/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Aggie Robotics | 2026-2027",
@@ -42,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} ${oswald.className} antialiased bg-white text-black`}>
+      <body className={`${siteFontsClassName} bg-white text-black`}>
         <Navbar />
         <div className="flex flex-col min-h-screen pt-18">
           <main className="grow overflow-x-hidden">{children}</main>
