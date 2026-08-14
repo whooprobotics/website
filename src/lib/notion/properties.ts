@@ -48,6 +48,14 @@ export function getSelect(page: PageObjectResponse, name: string): string {
   return "";
 }
 
+export function getNumber(page: PageObjectResponse, name: string): number | undefined {
+  const prop = property(page, name);
+  if (prop?.type === "number" && typeof prop.number === "number") {
+    return prop.number;
+  }
+  return undefined;
+}
+
 export function getCheckbox(page: PageObjectResponse, name: string): boolean {
   const prop = property(page, name);
   if (prop?.type === "checkbox") {

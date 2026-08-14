@@ -6,7 +6,7 @@ import { getTeamPhoto } from "@/src/content/teamPhotos";
 import PersonCard from "@/src/app/components/team/PersonCard";
 import TeamBanner from "@/src/app/components/team/TeamBanner";
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 export default async function Marketing() {
   const officers = (await getOfficersByGroup(CURRENT_YEAR)).Marketing;

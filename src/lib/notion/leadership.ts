@@ -1,9 +1,6 @@
 import { collectPaginatedAPI } from "@notionhq/client";
 import { unstable_cache } from "next/cache";
-import {
-  BOARD_POSITION_ORDER,
-  LEADERSHIP_GROUPS,
-} from "@/src/content/leadership";
+import { LEADERSHIP_GROUPS } from "@/src/content/leadership";
 import {
   LeadershipGroup,
   LeadershipType,
@@ -17,6 +14,7 @@ import {
 } from "./client";
 import {
   asFullPage,
+  getNumber,
   getRelationIds,
   getRichText,
   getSelect,
@@ -32,11 +30,9 @@ function emptyGroups(): Record<LeadershipGroup, LeadershipWithRole[]> {
   return { VEXU: [], Combat: [], Marketing: [] };
 }
 
-function boardSort(a: LeadershipWithRole, b: LeadershipWithRole) {
-  const ai = BOARD_POSITION_ORDER.indexOf(a.position);
-  const bi = BOARD_POSITION_ORDER.indexOf(b.position);
-  const ao = ai === -1 ? 99 : ai;
-  const bo = bi === -1 ? 99 : bi;
+function bySortThenName(a: LeadershipWithRole, b: LeadershipWithRole) {
+  const ao = a.sort ?? Number.POSITIVE_INFINITY;
+  const bo = b.sort ?? Number.POSITIVE_INFINITY;
   if (ao !== bo) return ao - bo;
   return a.name.localeCompare(b.name);
 }
@@ -69,6 +65,7 @@ async function fetchPublishedLeadership(year: string): Promise<LeadershipWithRol
           },
         ],
       },
+      sorts: [{ property: "Sort", direction: "ascending" }],
     });
 
     const personIds = new Set<string>();
@@ -121,6 +118,7 @@ async function fetchPublishedLeadership(year: string): Promise<LeadershipWithRol
         position: getTitle(role, "Position"),
         type,
         group: type === "Officer" ? group : undefined,
+        sort: getNumber(role, "Sort"),
       });
     }
 
@@ -137,17 +135,14 @@ async function fetchPublishedLeadership(year: string): Promise<LeadershipWithRol
 function getPublishedLeadership(year: string): Promise<LeadershipWithRole[]> {
   return unstable_cache(
     () => fetchPublishedLeadership(year),
-    ["leadership", year],
-    { revalidate: 3600 }
+    ["leadership", year, "sort-v1"],
+    { revalidate: 60 }
   )();
 }
 
 export async function getLeadership(year: string, type: LeadershipType): Promise<LeadershipWithRole[]> {
   const people = (await getPublishedLeadership(year)).filter((person) => person.type === type);
-  if (type === "Board") {
-    return [...people].sort(boardSort);
-  }
-  return people;
+  return [...people].sort(bySortThenName);
 }
 
 export async function getOfficersByGroup(
@@ -158,6 +153,9 @@ export async function getOfficersByGroup(
     if (officer.group) {
       groups[officer.group].push(officer);
     }
+  }
+  for (const group of LEADERSHIP_GROUPS) {
+    groups[group].sort(bySortThenName);
   }
   return groups;
 }

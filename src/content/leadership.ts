@@ -10,12 +10,8 @@ export const PROGRAM_HREFS: Record<LeadershipGroup, string> = {
   Marketing: "/marketing",
 };
 
-export const BOARD_POSITION_ORDER = [
-  "President",
-  "Vice President of Operations",
-  "Vice President of Marketing",
-  "Vice President of Events",
-  "Treasurer",
-  "Webmaster",
-  "Graduate Advisor",
-];
+export const GROUP_DISPLAY_NAMES: Record<LeadershipGroup, string> = {
+  VEXU: "VEXU — WHOOP",
+  Combat: "Aggie Combat Robotics",
+  Marketing: "Marketing",
+};

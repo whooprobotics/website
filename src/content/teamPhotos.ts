@@ -25,14 +25,14 @@ export const teamPhotos: TeamPhoto[] = [
     id: "whoop-25-26",
     year: "2026-2027",
     group: "VEXU",
-    alt: "The Aggie Robotics VEXU team",
+    alt: "The WHOOP VEXU team",
     src: "/team/whoop-25-26.JPG",
   },
   {
     id: "acr-25-26",
     year: "2026-2027",
     group: "Combat",
-    alt: "The Aggie Robotics combat team",
+    alt: "Aggie Combat Robotics",
     src: "/team/acr-25-26.JPG",
   },
   {

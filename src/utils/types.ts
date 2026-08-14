@@ -19,6 +19,7 @@ export type LeadershipWithRole = Leadership & {
     position: string;
     type: LeadershipType;
     group?: LeadershipGroup;
+    sort?: number;
 };
 
 export interface TeamPhoto {

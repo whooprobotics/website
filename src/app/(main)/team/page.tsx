@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import {
   CURRENT_YEAR,
+  GROUP_DISPLAY_NAMES,
   LEADERSHIP_GROUPS,
   PROGRAM_HREFS,
 } from "@/src/content/leadership";
@@ -10,10 +11,10 @@ import { getTeamPhoto } from "@/src/content/teamPhotos";
 import LeadershipGrid from "@/src/app/components/team/LeadershipGrid";
 import TeamBanner from "@/src/app/components/team/TeamBanner";
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 const EMPTY_MESSAGES: Record<string, string> = {
-  Combat: "Combat officers will be announced soon.",
+  Combat: "Aggie Combat Robotics officers will be announced soon.",
 };
 
 export default async function Team() {
@@ -45,7 +46,7 @@ export default async function Team() {
         <div className="mx-6 md:mx-10 max-w-4xl">
           <h2 className="text-5xl font-primary text-primary">LEADERSHIP</h2>
           <p className="text-lg font-secondary mt-4">
-            Aggie Robotics is led by a Board of Directors and officers across VEXU, Combat, and Marketing.
+            Aggie Robotics is led by a Board of Directors and officers across VEXU — WHOOP, Aggie Combat Robotics, and Marketing.
             Meet the {CURRENT_YEAR} leadership team below.
           </p>
         </div>
@@ -79,16 +80,17 @@ export default async function Team() {
 
       {LEADERSHIP_GROUPS.map((group) => {
         const photo = getTeamPhoto(CURRENT_YEAR, group);
+        const displayName = GROUP_DISPLAY_NAMES[group];
         return (
           <LeadershipGrid
             key={group}
             id={group.toLowerCase()}
-            title={group.toUpperCase()}
+            title={displayName.toUpperCase()}
             photoSrc={photo?.src}
             photoAlt={photo?.alt}
             people={officersByGroup[group]}
             programHref={PROGRAM_HREFS[group]}
-            programLabel={`About ${group}`}
+            programLabel={`About ${displayName}`}
             emptyMessage={EMPTY_MESSAGES[group]}
           />
         );
