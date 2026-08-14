@@ -72,6 +72,14 @@ export function getRelationIds(page: PageObjectResponse, name: string): string[]
   return [];
 }
 
+const HEADSHOT_DIR = "/team/people";
+
+export function headshotSrc(raw: string): string {
+  const value = raw.trim();
+  if (!value || /[\\/]/.test(value) || value === "." || value === "..") return "";
+  return `${HEADSHOT_DIR}/${value}`;
+}
+
 export function linkedinSlug(urlOrSlug: string): string {
   if (!urlOrSlug) return "";
   try {

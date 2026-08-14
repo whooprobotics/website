@@ -20,6 +20,7 @@ import {
   getSelect,
   getTitle,
   getUrl,
+  headshotSrc,
   linkedinSlug,
 } from "./properties";
 
@@ -84,7 +85,7 @@ async function fetchPublishedLeadership(year: string): Promise<LeadershipWithRol
       [...personIds].map(async (id) => {
         const page = asFullPage(await notion.pages.retrieve({ page_id: id }));
         if (!page) return;
-        const photo = getRichText(page, "Photo");
+        const photo = headshotSrc(getRichText(page, "Photo"));
         peopleById.set(id, {
           name: getTitle(page, "Name"),
           major: getRichText(page, "Major"),
@@ -135,7 +136,7 @@ async function fetchPublishedLeadership(year: string): Promise<LeadershipWithRol
 function getPublishedLeadership(year: string): Promise<LeadershipWithRole[]> {
   return unstable_cache(
     () => fetchPublishedLeadership(year),
-    ["leadership", year, "sort-v1"],
+    ["leadership", year, "photo-v2"],
     { revalidate: 60 }
   )();
 }
