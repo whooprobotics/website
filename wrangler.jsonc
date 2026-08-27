@@ -16,5 +16,10 @@
       "binding": "WORKER_SELF_REFERENCE",
       "service": "aggierobotics-website"
     }
+  ],
+  "routes": [
+    { "pattern": "aggierobotics.com/*", "zone_name": "aggierobotics.com" },
+    { "pattern": "www.aggierobotics.com/*", "zone_name": "aggierobotics.com" },
+    { "pattern": "develop.aggierobotics.com", "custom_domain": true }
   ]
 }
