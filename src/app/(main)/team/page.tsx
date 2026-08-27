@@ -10,6 +10,7 @@ import { getLeadership, getOfficersByGroup } from "@/src/lib/notion/leadership";
 import { getTeamPhoto } from "@/src/content/teamPhotos";
 import LeadershipGrid from "@/src/app/components/team/LeadershipGrid";
 import TeamBanner from "@/src/app/components/team/TeamBanner";
+import { pageMetadata } from "@/src/lib/seo";
 
 export const revalidate = 60;
 
@@ -105,7 +106,10 @@ export default async function Team() {
   );
 }
 
-export const metadata: Metadata = {
-  title: "Aggie Robotics - Team",
-  description: "The board and officers of Aggie Robotics at Texas A&M University.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Team & Officers",
+  description:
+    "Meet the executive board and officers behind Aggie Robotics at Texas A&M University — the students leading VEX U, combat robotics, marketing, and outreach.",
+  path: "/team",
+  keywords: ["Aggie Robotics officers", "Aggie Robotics team", "Texas A&M robotics leadership"],
+});

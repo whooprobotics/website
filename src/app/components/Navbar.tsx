@@ -54,7 +54,7 @@ const Navbar = () => {
       <div className="mx-auto lg:pr-5 py-1">
         <div className="flex items-center justify-between h-16 font-primary">
           <Link href="/" className="px-5 hover:scale-110 transition-transform" onClick={closeMenus}>
-            <Image src="/logos/raw/Black.png" alt="Logo" className="w-8 h-12" width={1280} height={1855} />
+            <Image src="/logos/raw/Black.png" alt="Aggie Robotics" className="w-8 h-12" width={1280} height={1855} />
           </Link>
           <div className="hidden lg:flex items-center space-x-7">
             {menuItems.map((item) => {

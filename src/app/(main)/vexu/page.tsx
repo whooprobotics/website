@@ -1,12 +1,13 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/src/app/components/PageHeader";
+import { pageMetadata } from "@/src/lib/seo";
 
 export default function VEXU() {
   return (
     <main className="flex flex-col justify-center">
       {/* Title Section */}
-      <PageHeader title="About VEXU" />
+      <PageHeader title="VEX U ROBOTICS" />
 
       {/* About VEX Section */}
       <section className="w-full brand-band py-16">
@@ -20,7 +21,13 @@ export default function VEXU() {
             </p>
           </div>
           <div className="logo-panel">
-            <Image src="/stockImages/vex-logo.png" alt="" width={746} height={341} className="w-auto h-40" />
+            <Image
+              src="/stockImages/vex-logo.png"
+              alt="VEX Robotics Competition logo"
+              width={746}
+              height={341}
+              className="w-auto h-40"
+            />
           </div>
         </div>
       </section>
@@ -31,7 +38,7 @@ export default function VEXU() {
           <div>
             <Image
               src="/stockImages/override-field.png"
-              alt=""
+              alt="The 2026-2027 VEX U Override game field"
               width={1500}
               height={844}
               className="w-full h-auto rounded-2xl shadow-card ring-1 ring-black/5"
@@ -51,7 +58,18 @@ export default function VEXU() {
   );
 }
 
-export const metadata: Metadata = {
-  title: "Aggie Robotics - VEXU",
-  description: "The VEXU robotics teams of Aggie Robotics at Texas A&M University.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "VEX U Robotics",
+  description:
+    "WHOOP is the VEX U team of Aggie Robotics at Texas A&M University — a top-10 world program competing in the 2026-2027 VEX U game, Override.",
+  path: "/vexu",
+  keywords: [
+    "VEX U",
+    "VEXU",
+    "Texas A&M VEX",
+    "WHOOP robotics",
+    "VEX Robotics Competition",
+    "Override",
+    "VEX U World Championship",
+  ],
+});

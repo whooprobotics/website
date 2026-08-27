@@ -6,6 +6,7 @@ import { getTeamPhoto } from "@/src/content/teamPhotos";
 import PageHeader from "@/src/app/components/PageHeader";
 import PersonCard from "@/src/app/components/team/PersonCard";
 import TeamBanner from "@/src/app/components/team/TeamBanner";
+import { pageMetadata } from "@/src/lib/seo";
 
 export const revalidate = 60;
 
@@ -73,8 +74,9 @@ export default async function Marketing() {
   );
 }
 
-export const metadata: Metadata = {
-  title: "Aggie Robotics - Marketing",
+export const metadata: Metadata = pageMetadata({
+  title: "Marketing",
   description:
-    "The marketing team of Aggie Robotics at Texas A&M University — events, graphics, social media, booths, recruitment, and merchandise.",
-};
+    "The marketing team of Aggie Robotics at Texas A&M University runs events, graphics, social media, booths, recruitment, and merchandise for the organization.",
+  path: "/marketing",
+});

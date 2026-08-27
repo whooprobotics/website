@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/src/app/components/PageHeader";
+import { pageMetadata } from "@/src/lib/seo";
 
 export default function Outreach() {
   return (
@@ -14,7 +15,7 @@ export default function Outreach() {
           <figure className="photo-card flex flex-col gap-3">
             <Image
               src="/stockImages/outreach-mentor.jpg"
-              alt=""
+              alt="Aggie Robotics members hosting the Aggieland Classic VEX competition"
               width={1024}
               height={651}
               className="w-full h-64 object-cover rounded-xl"
@@ -46,7 +47,7 @@ export default function Outreach() {
           <figure className="flex flex-col gap-3">
             <Image
               src="/stockImages/outreach-mentor.jpg"
-              alt=""
+              alt="Aggie Robotics members mentoring students at a local VEX competition"
               width={1024}
               height={651}
               className="w-full h-64 object-cover rounded-2xl shadow-card ring-1 ring-black/5"
@@ -61,7 +62,16 @@ export default function Outreach() {
   );
 }
 
-export const metadata: Metadata = {
-  title: "Aggie Robotics - Outreach",
-  description: "The outreach efforts of Aggie Robotics at Texas A&M University.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Outreach",
+  description:
+    "Aggie Robotics hosts the Aggieland Classic and mentors K-12 VEX teams across Bryan/College Station, bringing hands-on STEAM to students in the Brazos Valley.",
+  path: "/outreach",
+  keywords: [
+    "Aggieland Classic",
+    "VEX tournament College Station",
+    "STEM outreach Bryan Texas",
+    "robotics mentorship",
+    "Texas A&M outreach",
+  ],
+});

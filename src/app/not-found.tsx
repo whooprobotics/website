@@ -5,8 +5,9 @@ import Footer from "@/src/app/components/Footer";
 import { Metadata } from "next";
  
 export const metadata: Metadata = {
-  title: "Aggie Robotics - 404 Not Found",
-  description: "404 Not Found - The page you are looking for does not exist.",
+  title: "Page not found",
+  description: "The page you are looking for does not exist.",
+  robots: { index: false, follow: true },
 };  
 
 export default function NotFound({showNavbar = true}: {showNavbar?: boolean}) {

@@ -10,6 +10,9 @@ export default function Media() {
 }
 
 export const metadata: Metadata = {
-  title: "Aggie Robotics - Media",
+  title: "Media",
   description: "The media presence of Aggie Robotics at Texas A&M University.",
+  alternates: { canonical: "/media" },
+  // Placeholder page — keep it out of the index until there is content here.
+  robots: { index: false, follow: true },
 };

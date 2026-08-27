@@ -4,6 +4,8 @@ import Link from "next/link";
 import { CURRENT_YEAR } from "@/src/content/leadership";
 import { getTeamPhoto } from "@/src/content/teamPhotos";
 import HeroVideo from "@/src/app/components/HeroVideo";
+import { pageMetadata } from "@/src/lib/seo";
+import OrganizationJsonLd from "@/src/app/components/OrganizationJsonLd";
 
 const pastRobots = [
   { src: "/stockImages/2018-19-robot.jpg", caption: "2018-2019: Turning Point" },
@@ -25,7 +27,13 @@ export default function Home() {
       href: "/vexu",
       cta: "About VEXU",
       body: "Aggie Robotics competes in the Vex U Robotics Competition. Our team, WHOOP, is a highly competitive which is top 10 in the world and has won multiple awards at the World Championship. We are excited to continue our success in the upcoming season!",
-      image: { src: "/stockImages/vexu-logo.png", width: 900, height: 900, className: "w-auto h-44" },
+      image: {
+        src: "/stockImages/vexu-logo.png",
+        alt: "VEX U logo",
+        width: 900,
+        height: 900,
+        className: "w-auto h-44",
+      },
     },
     {
       title: "Combat Robotics",
@@ -34,6 +42,7 @@ export default function Home() {
       body: "Aggie Combat Robotics — ACR — designs and fights robots in Plastic Antweight, 3 lb, and 12 lb. The program debuted at Red Dirt Rumble 2026 and keeps the build notes on the ACR wiki.",
       image: {
         src: "/stockImages/rce-logo.jpg",
+        alt: "Aggie Combat Robotics logo",
         width: 900,
         height: 900,
         className: "w-auto h-40 rounded-xl",
@@ -45,13 +54,21 @@ export default function Home() {
       cta: "About Marketing",
       body: "To help support our competition teams, Aggie Robotics has a marketing team that focuses on promoting our teams and events through media, outreach, and sponsorship. We are excited to continue growing our marketing efforts in the upcoming season!",
       image: marketingPhoto?.src
-        ? { src: marketingPhoto.src, width: 900, height: 900, className: "w-auto h-48 object-cover rounded-xl" }
+        ? {
+            src: marketingPhoto.src,
+            alt: marketingPhoto.alt ?? "The Aggie Robotics marketing team",
+            width: 900,
+            height: 900,
+            className: "w-auto h-48 object-cover rounded-xl",
+          }
         : null,
     },
   ];
 
   return (
     <main className="flex flex-col justify-center">
+      <OrganizationJsonLd />
+
       {/* Title Section */}
       <section className="relative flex flex-col items-center justify-center w-full h-[30rem] overflow-hidden hero-scrim">
         <HeroVideo />
@@ -80,7 +97,13 @@ export default function Home() {
             </p>
           </div>
           <div className="logo-panel">
-            <Image src="/logos/raw/Black.png" alt="" width={1280} height={1855} className="w-auto h-44" />
+            <Image
+              src="/logos/raw/Black.png"
+              alt="Aggie Robotics lion logo"
+              width={1280}
+              height={1855}
+              className="w-auto h-44"
+            />
           </div>
         </div>
       </section>
@@ -98,7 +121,7 @@ export default function Home() {
               <figure key={robot.src} className="photo-card flex flex-col gap-3">
                 <Image
                   src={robot.src}
-                  alt=""
+                  alt={`Aggie Robotics VEX U robot from ${robot.caption}`}
                   width={1280}
                   height={1280}
                   className="w-full h-56 object-cover rounded-xl"
@@ -138,7 +161,7 @@ export default function Home() {
               {program.image ? (
                 <Image
                   src={program.image.src}
-                  alt=""
+                  alt={program.image.alt}
                   width={program.image.width}
                   height={program.image.height}
                   className={program.image.className}
@@ -154,7 +177,10 @@ export default function Home() {
   );
 }
 
-export const metadata: Metadata = {
-  title: "Aggie Robotics | 2026-2027",
-  description: "The official website of Aggie Robotics at Texas A&M University!",
-};
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle: true,
+  title: "Aggie Robotics | Robotics at Texas A&M University",
+  description:
+    "Aggie Robotics is a student organization at Texas A&M University. We compete in VEX U and combat robotics, and run STEAM outreach across Bryan/College Station.",
+  path: "/",
+});

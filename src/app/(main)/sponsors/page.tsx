@@ -6,6 +6,7 @@ import BenefitsTable from "@/src/app/components/sponsors/BenefitsTable";
 import DonateCard from "@/src/app/components/sponsors/DonateCard";
 import SponsorWall from "@/src/app/components/sponsors/SponsorWall";
 import { ADVISOR_EMAIL, ADVISOR_NAME, PACKET_URL, SPONSOR_EMAIL } from "@/src/content/sponsors";
+import { pageMetadata } from "@/src/lib/seo";
 
 const impact = [
   {
@@ -42,7 +43,7 @@ export default function Sponsors() {
       <div className="relative flex h-80 flex-col items-center justify-center overflow-hidden hero-scrim">
         <Image
           src="/team/org-25-26.jpg"
-          alt=""
+          alt="The Aggie Robotics organization at Texas A&M University"
           fill
           style={{ objectFit: "cover" }}
           className="absolute inset-0 z-0"
@@ -192,8 +193,15 @@ export default function Sponsors() {
   );
 }
 
-export const metadata: Metadata = {
-  title: "Aggie Robotics - Sponsors",
+export const metadata: Metadata = pageMetadata({
+  title: "Sponsor Us",
   description:
     "Support Aggie Robotics at Texas A&M University. Donate through the Texas A&M Foundation and meet the sponsors behind our VEX U, combat robotics, and outreach programs.",
-};
+  path: "/sponsors",
+  keywords: [
+    "sponsor Aggie Robotics",
+    "Texas A&M Foundation donation",
+    "robotics sponsorship",
+    "student org sponsorship Texas A&M",
+  ],
+});

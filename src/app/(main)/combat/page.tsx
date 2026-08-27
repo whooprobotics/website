@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { pageMetadata } from "@/src/lib/seo";
 
 const WIKI = "https://acr.aggierobotics.com";
 
@@ -217,8 +218,18 @@ export default function Combat() {
   );
 }
 
-export const metadata: Metadata = {
-  title: "Aggie Robotics - Combat Robotics",
+export const metadata: Metadata = pageMetadata({
+  title: "Combat Robotics (ACR)",
   description:
-    "Aggie Combat Robotics (ACR) is the combat robotics program of Aggie Robotics at Texas A&M University — 1 lb Plastic Antweight, 3 lb, and 12 lb bots, plus the ACR wiki.",
-};
+    "Aggie Combat Robotics (ACR) builds and fights 1 lb Plastic Antweight, 3 lb beetleweight, and 12 lb hobbyweight robots at Texas A&M University. Meet the bots and the ACR wiki.",
+  path: "/combat",
+  keywords: [
+    "Aggie Combat Robotics",
+    "ACR",
+    "combat robotics Texas A&M",
+    "Plastic Antweight",
+    "beetleweight",
+    "hobbyweight",
+    "battlebots college",
+  ],
+});

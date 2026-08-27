@@ -4,10 +4,13 @@ import Footer from "@/src/app/components/Footer";
 
 import type { Metadata } from "next";
 import { siteFontsClassName } from "@/src/lib/fonts";
+import { SITE_URL } from "@/src/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Aggie Robotics | 2025-2026",
-  description: "The official website of Aggie Robotics at Texas A&M University!",
+  metadataBase: new URL(SITE_URL),
+  title: "Wiki | Aggie Robotics",
+  description: "Member wiki for Aggie Robotics at Texas A&M University.",
+  robots: { index: false, follow: false },
   icons: {
     icon: [
       {
