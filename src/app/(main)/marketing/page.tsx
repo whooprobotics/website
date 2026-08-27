@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CURRENT_YEAR } from "@/src/content/leadership";
 import { getOfficersByGroup } from "@/src/lib/notion/leadership";
 import { getTeamPhoto } from "@/src/content/teamPhotos";
+import PageHeader from "@/src/app/components/PageHeader";
 import PersonCard from "@/src/app/components/team/PersonCard";
 import TeamBanner from "@/src/app/components/team/TeamBanner";
 
@@ -14,48 +15,49 @@ export default async function Marketing() {
 
   return (
     <main className="flex flex-col justify-center">
-      <div className="relative flex flex-col items-center justify-center w-full h-35 overflow-hidden">
-        <h1 className="relative z-10 text-7xl font-primary text-black">MARKETING</h1>
-      </div>
+      <PageHeader title="MARKETING" />
 
-      <div className="flex flex-col justify-center w-full py-16 bg-primary text-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mx-6 md:mx-10 items-center">
+      <section className="w-full brand-band py-16 text-white">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="flex flex-col justify-center gap-5">
-            <h2 className="text-5xl font-primary">WHAT WE DO</h2>
-            <p className="text-lg font-secondary">
+            <h2 className="text-4xl md:text-5xl font-primary heading-rule heading-rule-light">
+              WHAT WE DO
+            </h2>
+            <p className="text-lg font-secondary text-white/90 max-w-2xl">
               The Marketing team supports Aggie Robotics competition programs and grows the organization.
               We plan events, create graphics, run social media, staff Aggie Robotics booths at campus and
               community events, help with recruitment, and design team merchandise including t-shirts.
             </p>
           </div>
-          <TeamBanner
-            src={teamPhoto?.src}
-            alt={teamPhoto?.alt ?? "Marketing team"}
-            label="Marketing Team"
-            inverted
-          />
+          <div>
+            <TeamBanner
+              src={teamPhoto?.src}
+              alt={teamPhoto?.alt ?? "Marketing team"}
+              label="Marketing Team"
+              inverted
+            />
+          </div>
         </div>
-      </div>
+      </section>
 
-      <section className="w-full py-12">
-        <div className="mx-6 md:mx-10">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
-            <div>
-              <h2 className="text-5xl font-primary text-primary">MEET THE OFFICERS</h2>
-              <p className="text-lg font-secondary mt-3 max-w-3xl">
+      <section className="w-full py-16">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+            <div className="flex flex-col gap-4">
+              <h2 className="text-4xl md:text-5xl font-primary text-primary heading-rule">
+                MEET THE OFFICERS
+              </h2>
+              <p className="text-lg font-secondary text-body mt-1 max-w-2xl">
                 Marketing officers lead events, public relations, sponsorship, and media. The full team
                 appears in the photo above.
               </p>
             </div>
-            <Link
-              href="/team#marketing"
-              className="font-primary text-xl text-primary hover:scale-105 transition-transform"
-            >
+            <Link href="/team#marketing" className="btn btn-ghost font-primary text-lg">
               See all leadership
             </Link>
           </div>
           {officers.length === 0 ? (
-            <p className="font-secondary text-lg text-center text-gray-600">
+            <p className="font-secondary text-lg text-center text-muted">
               Marketing officers will be announced soon.
             </p>
           ) : (

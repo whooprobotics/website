@@ -14,6 +14,7 @@ interface LeadershipGridProps {
   programLabel?: string;
   emptyMessage?: string;
   inverted?: boolean;
+  tinted?: boolean;
 }
 
 export default function LeadershipGrid({
@@ -27,36 +28,48 @@ export default function LeadershipGrid({
   programLabel,
   emptyMessage,
   inverted = false,
+  tinted = false,
 }: LeadershipGridProps) {
+  const surfaceClass = inverted ? "brand-band text-white" : tinted ? "tint-band" : "";
+
   return (
-    <section
-      id={id}
-      className={`scroll-mt-24 w-full py-12 ${inverted ? "bg-primary text-white" : ""}`}
-    >
-      <div className="mx-6 md:mx-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
-          <div>
-            <h2 className={`text-5xl font-primary ${inverted ? "text-white" : "text-primary"}`}>
+    <section id={id} className={`scroll-mt-24 w-full py-16 ${surfaceClass}`}>
+      <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+          <div className="flex flex-col gap-4">
+            <h2
+              className={`text-4xl md:text-5xl font-primary heading-rule ${
+                inverted ? "text-white heading-rule-light" : "text-primary"
+              }`}
+            >
               {title}
             </h2>
             {description ? (
-              <p className="text-lg font-secondary mt-3 max-w-3xl">{description}</p>
+              <p
+                className={`text-lg font-secondary mt-1 max-w-3xl ${
+                  inverted ? "text-white/90" : "text-body"
+                }`}
+              >
+                {description}
+              </p>
             ) : null}
           </div>
           {programHref ? (
             <Link
               href={programHref}
-              className={`font-primary text-xl hover:scale-105 transition-transform ${
-                inverted ? "text-white" : "text-primary"
-              }`}
+              className={`btn font-primary text-lg ${inverted ? "btn-on-dark" : "btn-ghost"}`}
             >
               {programLabel ?? "About this program"}
             </Link>
           ) : null}
         </div>
-        <TeamBanner src={photoSrc} alt={photoAlt ?? title} label={title} />
+        <TeamBanner src={photoSrc} alt={photoAlt ?? title} label={title} inverted={inverted} />
         {people.length === 0 ? (
-          <p className={`font-secondary text-lg text-center mt-8 ${inverted ? "text-white/80" : "text-gray-600"}`}>
+          <p
+            className={`font-secondary text-lg text-center mt-8 ${
+              inverted ? "text-white/80" : "text-muted"
+            }`}
+          >
             {emptyMessage ?? "Officers for this group will be announced soon."}
           </p>
         ) : (

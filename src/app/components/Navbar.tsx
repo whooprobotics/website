@@ -23,8 +23,9 @@ const menuItems: NavItem[] = [
     ],
   },
   { label: "Media", href: "/media" },
-  { label: "Sponsors", href: "/sponsors" },
 ];
+
+const sponsorCta = { label: "Sponsor us", href: "/sponsors" };
 
 function isLinkItem(item: NavItem): item is NavLink {
   return "href" in item;
@@ -41,12 +42,15 @@ const Navbar = () => {
   };
 
   const desktopLinkClass = (isActive: boolean) =>
-    classNames("transition tracking-wider text-xl text-black hover:scale-110 hover:text-primary", {
-      "scale-110 text-primary": isActive,
-    });
+    classNames(
+      "relative py-1 tracking-wider text-xl text-text transition-colors hover:text-primary",
+      "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:origin-left after:rounded-full",
+      "after:bg-primary after:transition-transform after:duration-200 hover:after:scale-x-100",
+      isActive ? "text-primary after:scale-x-100" : "after:scale-x-0"
+    );
 
   return (
-    <nav className="fixed top-0 w-full bg-white shadow-md/25 shadow-gray-600 z-30">
+    <nav className="fixed top-0 w-full frosted border-b border-hairline shadow-nav z-30">
       <div className="mx-auto lg:pr-5 py-1">
         <div className="flex items-center justify-between h-16 font-primary">
           <Link href="/" className="px-5 hover:scale-110 transition-transform" onClick={closeMenus}>
@@ -86,8 +90,8 @@ const Navbar = () => {
                     />
                   </button>
                   {isProgramsOpen ? (
-                    <div className="absolute right-0 top-full pt-2">
-                      <div className="bg-white shadow-md/25 shadow-gray-600 py-2 min-w-52">
+                    <div className="absolute right-0 top-full pt-3">
+                      <div className="surface rounded-xl p-1.5 min-w-52 animate-fade-in">
                         {item.children.map((child) => {
                           const isActive = pathname === child.href;
                           return (
@@ -95,8 +99,9 @@ const Navbar = () => {
                               key={child.href}
                               href={child.href}
                               className={classNames(
-                                "block px-5 py-2 tracking-wider text-xl text-black hover:text-primary hover:bg-secondary/40",
-                                { "text-primary": isActive }
+                                "block rounded-lg px-4 py-2 tracking-wider text-xl text-text transition-colors",
+                                "hover:text-primary hover:bg-primary/8",
+                                { "text-primary bg-primary/8": isActive }
                               )}
                               onClick={() => setIsProgramsOpen(false)}
                             >
@@ -110,9 +115,15 @@ const Navbar = () => {
                 </div>
               );
             })}
+            <Link
+              href={sponsorCta.href}
+              className="btn btn-primary px-4 py-1.5 text-lg tracking-wider"
+            >
+              {sponsorCta.label}
+            </Link>
           </div>
           <button
-            className="lg:hidden p-4 m-2 text-black hover:text-primary transition-colors cursor-pointer"
+            className="lg:hidden p-4 m-2 text-text hover:text-primary transition-colors cursor-pointer"
             onClick={() => {
               setIsMobileMenuOpen(!isMobileMenuOpen);
               setIsProgramsOpen(false);
@@ -123,7 +134,7 @@ const Navbar = () => {
         </div>
 
         {isMobileMenuOpen ? (
-          <div className="lg:hidden absolute w-full border-t-1 border-secondary shadow-md/25 shadow-gray-600 z-10 bg-white transition-transform">
+          <div className="lg:hidden absolute w-full border-t border-hairline shadow-nav z-10 frosted animate-fade-in">
             <div className="pb-2 space-y-4"></div>
             {menuItems.map((item) => {
               if (isLinkItem(item)) {
@@ -131,8 +142,8 @@ const Navbar = () => {
                 return (
                   <div key={item.href}>
                     <Link
-                      className={`block py-2 px-5 font-primary tracking-wider transition-colors text-xl text-black hover:text-primary ${
-                        isActive ? " text-primary" : ""
+                      className={`block py-2 px-5 font-primary tracking-wider transition-colors text-xl hover:text-primary hover:bg-primary/8 ${
+                        isActive ? "text-primary bg-primary/8" : "text-text"
                       }`}
                       href={item.href}
                       onClick={closeMenus}
@@ -148,8 +159,8 @@ const Navbar = () => {
                 <div key={item.label}>
                   <button
                     type="button"
-                    className={`flex w-full items-center justify-between py-2 px-5 font-primary tracking-wider transition-colors text-xl text-black hover:text-primary cursor-pointer ${
-                      isChildActive ? " text-primary" : ""
+                    className={`flex w-full items-center justify-between py-2 px-5 font-primary tracking-wider transition-colors text-xl hover:text-primary cursor-pointer ${
+                      isChildActive ? "text-primary" : "text-text"
                     }`}
                     aria-expanded={isProgramsOpen}
                     onClick={() => setIsProgramsOpen((open) => !open)}
@@ -168,8 +179,8 @@ const Navbar = () => {
                           <Link
                             key={child.href}
                             href={child.href}
-                            className={`block py-2 pl-10 pr-5 font-primary tracking-wider transition-colors text-xl text-black hover:text-primary ${
-                              isActive ? " text-primary" : ""
+                            className={`block py-2 pl-10 pr-5 font-primary tracking-wider transition-colors text-xl hover:text-primary hover:bg-primary/8 ${
+                              isActive ? "text-primary bg-primary/8" : "text-text"
                             }`}
                             onClick={closeMenus}
                           >
@@ -181,6 +192,15 @@ const Navbar = () => {
                 </div>
               );
             })}
+            <div className="px-5 pt-2 pb-4">
+              <Link
+                href={sponsorCta.href}
+                className="btn btn-primary w-full font-primary text-xl tracking-wider"
+                onClick={closeMenus}
+              >
+                {sponsorCta.label}
+              </Link>
+            </div>
           </div>
         ) : null}
       </div>

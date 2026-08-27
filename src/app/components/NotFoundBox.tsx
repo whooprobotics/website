@@ -31,18 +31,14 @@ export default function NotFoundBox({showNavbar}: {showNavbar: boolean}) {
                     {/* Right Text */}
                     <div className="items-center justify-center text-center">
                         <h2 className='text-3xl sm:text-5xl font-secondary'>This page could not be found</h2>
-                        <p className='text-base sm:text-xl font-secondary mt-2'>The page you are looking for does not exist or has been moved.</p>
+                        <p className='text-base sm:text-xl font-secondary text-body mt-2'>The page you are looking for does not exist or has been moved.</p>
                     </div>
                 </div>
-                <Link
-                href="/"
-                target="_self"
-                // newTab={false}
-                className="w-full text-center text-3xl lg:text-4xl"
-                // text="Home"
-                >
-                    <u>Home</u>
-                </Link>
+                <div className="flex justify-center">
+                    <Link href="/" className="btn btn-primary font-primary text-2xl">
+                        Home
+                    </Link>
+                </div>
             </div>
         </div>
     );

@@ -1,10 +1,11 @@
 import { Metadata } from "next";
+import PageHeader from "@/src/app/components/PageHeader";
 
 export default function Media() {
   return (
-    <div className="flex flex-col justify-center md:gap-10 md:m-7">
-        <h1 className="text-4xl font-bold text-center mt-10">Media Page Coming Soon!</h1>
-    </div>
+    <main className="flex flex-col justify-center">
+      <PageHeader title="MEDIA" description="Page coming soon!" />
+    </main>
   );
 }
 
