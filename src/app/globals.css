@@ -1,26 +1,316 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-primary: oswald;
+  --font-secondary: roboto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --color-primary: #54242c;
+  --color-primary-light: #7c3d48;
+  --color-primary-dark: #36161c;
+  --color-secondary: #ded7d5;
+
+  --color-text: #1d1416;
+  --color-body: #4b4143;
+  --color-muted: #6d6062;
+  --color-bg: #faf7f6;
+  --color-surface: #ffffff;
+  --color-hairline: #e8e0de;
+
+  --shadow-soft: 0 1px 2px rgba(38, 16, 20, 0.06), 0 2px 8px rgba(38, 16, 20, 0.05);
+  --shadow-card: 0 1px 2px rgba(38, 16, 20, 0.05), 0 4px 12px rgba(38, 16, 20, 0.07),
+    0 12px 28px rgba(38, 16, 20, 0.05);
+  --shadow-lift: 0 2px 6px rgba(38, 16, 20, 0.08), 0 12px 24px rgba(38, 16, 20, 0.12),
+    0 24px 48px rgba(38, 16, 20, 0.1);
+  --shadow-nav: 0 1px 0 rgba(38, 16, 20, 0.06), 0 6px 24px rgba(38, 16, 20, 0.08);
+
+  --animate-fade-in: fade-in 0.15s ease-out both;
+  --animate-slide-up: slide-up 0.5s ease-out both;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    height: 100%;
+    overflow: hidden;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    background-repeat: no-repeat;
+    background-image: radial-gradient(
+        70rem 32rem at 50% -8rem,
+        color-mix(in oklab, var(--color-primary) 10%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        50rem 28rem at 110% 8%,
+        color-mix(in oklab, var(--color-primary) 6%, transparent),
+        transparent 70%
+      );
+  }
+
+  body {
+    height: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--color-primary) 40%, transparent) transparent;
+  }
+
+  /* Grain layer so the large empty areas read as paper rather than blank screen. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.45;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)' opacity='.05'/%3E%3C/svg%3E");
+  }
+
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    border-radius: 999px;
+    background-clip: content-box;
+    background-color: color-mix(in oklab, var(--color-primary) 35%, transparent);
+  }
+
+  body::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in oklab, var(--color-primary) 55%, transparent);
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Full-bleed maroon band: gradient, woven texture and inset edges instead of one flat fill. */
+@utility brand-band {
+  background-color: var(--color-primary);
+  background-image: radial-gradient(80% 120% at 12% 0%, rgba(255, 255, 255, 0.12), transparent 55%),
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.035) 0 2px,
+      transparent 2px 9px
+    ),
+    linear-gradient(
+      155deg,
+      var(--color-primary-light) 0%,
+      var(--color-primary) 42%,
+      var(--color-primary-dark) 100%
+    );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+@utility ink-band {
+  background-color: #140e10;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.07) 1px, transparent 0),
+    linear-gradient(120deg, #150e10 0%, #2a1d21 55%, #120c0e 100%);
+  background-size: 22px 22px, auto;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Light section with a whisper of brand tint, used to break up stacked white rows. */
+@utility tint-band {
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--color-primary) 5%, transparent),
+    transparent 45%,
+    color-mix(in oklab, var(--color-primary) 6%, transparent)
+  );
+  border-top: 1px solid var(--color-hairline);
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+@utility surface {
+  background-color: var(--color-surface);
+  background-image: linear-gradient(180deg, #ffffff 0%, #fbf8f7 100%);
+  border: 1px solid var(--color-hairline);
+  box-shadow: var(--shadow-card);
+}
+
+@utility frosted {
+  background-color: color-mix(in oklab, var(--color-surface) 82%, transparent);
+  backdrop-filter: saturate(1.4) blur(12px);
+}
+
+@utility lift {
+  transition: transform 250ms cubic-bezier(0.2, 0.7, 0.3, 1),
+    box-shadow 250ms cubic-bezier(0.2, 0.7, 0.3, 1);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+/* Soft pedestal so transparent logo art does not float on bare white. */
+@utility logo-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--color-hairline);
+  background-image: radial-gradient(
+      65% 65% at 50% 38%,
+      color-mix(in oklab, var(--color-primary) 9%, transparent),
+      transparent 72%
+    ),
+    linear-gradient(180deg, #ffffff, #f6f1f0);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Framed photo for use on top of the maroon bands. */
+@utility photo-card {
+  padding: 0.55rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  transition: transform 300ms cubic-bezier(0.2, 0.7, 0.3, 1), box-shadow 300ms, background-color 300ms;
+
+  &:hover {
+    transform: translateY(-6px);
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.36);
+  }
+}
+
+@utility heading-rule {
+  &::after {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 3px;
+    margin-top: 0.9rem;
+    border-radius: 999px;
+    background-image: linear-gradient(
+      90deg,
+      var(--color-primary),
+      color-mix(in oklab, var(--color-primary) 25%, transparent)
+    );
+  }
+}
+
+@utility heading-rule-light {
+  &::after {
+    background-image: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.25));
+  }
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  transition: transform 250ms cubic-bezier(0.2, 0.7, 0.3, 1), box-shadow 250ms, background-color 250ms;
+}
+
+@utility btn-primary {
+  color: #ffffff;
+  background-image: linear-gradient(
+    140deg,
+    var(--color-primary-light),
+    var(--color-primary) 55%,
+    var(--color-primary-dark)
+  );
+  box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  }
+}
+
+@utility btn-ghost {
+  color: var(--color-primary);
+  border: 1px solid color-mix(in oklab, var(--color-primary) 28%, transparent);
+  background-color: color-mix(in oklab, var(--color-primary) 5%, transparent);
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: color-mix(in oklab, var(--color-primary) 11%, transparent);
+    box-shadow: var(--shadow-soft);
+  }
+}
+
+@utility btn-on-dark {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background-color: rgba(255, 255, 255, 0.12);
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@utility hero-scrim {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image: linear-gradient(
+      180deg,
+      rgba(20, 10, 12, 0.14) 0%,
+      rgba(20, 10, 12, 0.22) 100%
+    );
+  }
 }

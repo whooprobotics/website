@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "aggierobotics-website",
+  "compatibility_date": "2026-08-04",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "aggierobotics-website"
+    }
+  ],
+  "routes": [
+    { "pattern": "aggierobotics.com/*", "zone_name": "aggierobotics.com" },
+    { "pattern": "www.aggierobotics.com/*", "zone_name": "aggierobotics.com" },
+    { "pattern": "develop.aggierobotics.com", "custom_domain": true }
+  ]
+}
