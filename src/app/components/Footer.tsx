@@ -3,13 +3,14 @@
 import React, {useState} from 'react'
 import { RiInstagramFill, RiYoutubeFill, RiMailFill, RiDiscordFill} from "react-icons/ri";
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
     const menuItems = [
         { href: 'https://www.instagram.com/aggie.robotics/', child:  <RiInstagramFill className='h-8 w-8 text-primary' /> },
         { href: 'mailto:aggieroboticstx@gmail.com', child: <RiMailFill className='h-8 w-8 text-primary' /> },
-        // { href: 'https://discord.gg/zXHfajB6td', child: <RiDiscordFill className='h-8 w-8 text-primary' /> },
         { href: 'https://www.youtube.com/@AggieRobotics', child: <RiYoutubeFill className='h-8 w-8 text-primary' /> },
+        { href: 'https://linktr.ee/aggie.robotics', child: <Image src='/logos/icons/linktree.png' alt='Linktree' width={32} height={32} className='h-8 w-8 text-primary' /> },
     ];  
   return (
     <footer className='w-full brand-band'>
