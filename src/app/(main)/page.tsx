@@ -135,6 +135,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Apply Now Section */}
+      <section className="w-full py-16">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-10 grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+          <div className="md:col-span-2 flex flex-col gap-5">
+            <h2 className="text-5xl font-primary text-primary heading-rule">
+              JOIN US
+            </h2>
+            <p className="text-lg font-secondary text-body max-w-2xl">
+              We are currently looking for new members to join our team! Whether you are interested in VEX U, Combat Robotics, or Marketing, we have a place for you. Apply now to become a part of the Aggie Robotics family!
+            </p>
+            <Link
+              href="https://forms.gle/NfZir9DYy3am3e5C6"
+              className="btn btn-primary font-primary text-lg"
+              target="_blank"
+            >
+              Apply Now
+            </Link>
+          </div>
+          <div className="logo-panel">
+            <Image
+              src="/stockImages/whoop8-team-photo.jpg"
+              alt="Aggie Robotics team photo"
+              width={800}
+              height={460}
+              className="w-auto h-50 object-cover rounded-xl"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Our Programs Title */}
       <section id="programs" className="scroll-mt-20 w-full ink-band py-12">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
