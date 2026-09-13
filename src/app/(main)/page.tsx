@@ -146,7 +146,7 @@ export default function Home() {
               We are currently looking for new members to join our team! Whether you are interested in VEX U, Combat Robotics, or Marketing, we have a place for you. Apply now to become a part of the Aggie Robotics family!
             </p> */}
             <p>
-              Applications are currently closed for the 2026-2027 season. Please check our Instagram page for updates on when applications will open again! If you have any questions or concerns, please reach out to us on our <Link href="https://www.instagram.com/aggieroboticstx/" target="_blank" rel="noopener noreferrer">Instagram page</Link> or email us at <Link href="mailto:aggieroboticstx@gmail.com" target="_blank" rel="noopener noreferrer">aggieroboticstx@gmail.com</Link>.
+              Applications are currently closed for the 2026-2027 season. Please check our Instagram page for updates on when applications will open again! If you have any questions or concerns, please reach out to us on our <Link href="https://www.instagram.com/aggie.robotics/" target="_blank" rel="noopener noreferrer">Instagram page</Link> or email us at <Link href="mailto:aggieroboticstx@gmail.com" target="_blank" rel="noopener noreferrer">aggieroboticstx@gmail.com</Link>.
             </p>
             {/* <Link
               href="https://forms.gle/NfZir9DYy3am3e5C6"
