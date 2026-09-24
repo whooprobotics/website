@@ -219,6 +219,22 @@ export const sponsors: Sponsor[] = [
     logo: "/sponsors/bleyl.svg",
     wide: true,
   },
+  {
+    id: "sendcutsend",
+    name: "SendCutSend",
+    tier: "bronze",
+    href: "https://sendcutsend.com",
+    logo: "/sponsors/sendcutsend.svg",
+    wide: true,
+  },
+  {
+    id: "oshcut",
+    name: "OSH Cut",
+    tier: "bronze",
+    href: "https://oshcut.com",
+    logo: "/sponsors/oshcut.svg",
+    wide: true,
+  }
 ];
 
 /** Ordered smallest to largest, matching the table in the sponsorship packet. */
