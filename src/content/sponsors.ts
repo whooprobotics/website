@@ -133,7 +133,7 @@ export const sponsors: Sponsor[] = [
   },
   { id: "notion", name: "Notion", tier: "platinum", href: "https://www.notion.com", logo: "/sponsors/notion.svg" },
 
-  { id: "rtx", name: "RTX", tier: "gold", href: "https://www.rtx.com", logo: "/sponsors/rtx.svg", wide: true },
+  { id: "rtx", name: "RTX", tier: "silver", href: "https://www.rtx.com", logo: "/sponsors/rtx.svg", wide: true },
   { id: "cat", name: "Caterpillar", tier: "gold", href: "https://www.caterpillar.com", logo: "/sponsors/cat.svg", wide: true },
   { id: "eaton", name: "Eaton", tier: "gold", href: "https://www.eaton.com", logo: "/sponsors/eaton.svg", wide: true },
   {
@@ -193,7 +193,18 @@ export const sponsors: Sponsor[] = [
     logo: "/sponsors/tc-energy.svg",
     wide: true,
   },
-  { id: "safetech", name: "SafeTech", tier: "silver", href: "https://www.linkedin.com/company/makesafetech" },
+  { 
+    id: "safetech",
+    name: "SafeTech",
+    tier: "silver",
+    href: "https://www.linkedin.com/company/makesafetech"
+  },
+  // { 
+  //   id: "ptel",
+  //   name: "PTEL",
+  //   tier: "gold",
+  //   href: "" 
+  // },
   {
     id: "polymaker",
     name: "Polymaker",
@@ -202,15 +213,14 @@ export const sponsors: Sponsor[] = [
     logo: "/sponsors/polymaker.png",
     wide: true,
   },
-
-  {
-    id: "healing-provisions",
-    name: "Healing Provisions",
-    tier: "bronze",
-    href: "https://healingprovisions.net",
-    logo: "/sponsors/healing-provisions.png",
-    wide: true,
-  },
+  // {
+  //   id: "healing-provisions",
+  //   name: "Healing Provisions",
+  //   tier: "bronze",
+  //   href: "https://healingprovisions.net",
+  //   logo: "/sponsors/healing-provisions.png",
+  //   wide: true,
+  // },
   {
     id: "bleyl",
     name: "Bleyl Engineering",
@@ -234,6 +244,22 @@ export const sponsors: Sponsor[] = [
     href: "https://oshcut.com",
     logo: "/sponsors/oshcut.svg",
     wide: true,
+  },
+  {
+    id: "3d-fuel",
+    name: "3D-Fuel",
+    tier: "bronze",
+    href: "https://www.3dfuel.com/",
+    logo: "/sponsors/3d-fuel.avif",
+    wide: true,
+  },
+  {
+    id: "RGS",
+    name: "Renaissance Global Services",
+    tier: "silver",
+    href: "https://renaissanceglobalservices.com/",
+    logo: "/sponsors/rgs.jpg",
+    // wide: true,
   }
 ];
 
