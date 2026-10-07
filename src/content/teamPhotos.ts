@@ -2,45 +2,46 @@ import { TeamPhoto } from "@/src/utils/types";
 
 export const teamPhotos: TeamPhoto[] = [
   {
-    id: "org-25-26",
+    id: "org-26-27",
     year: "2026-2027",
     group: "org",
     alt: "The Aggie Robotics organization",
-    src: "/team/org-25-26.jpg",
+    src: "/team/org-26-27.jpg",
   },
   {
-    id: "board-25-26",
+    id: "board-26-27",
     year: "2026-2027",
     group: "board",
     alt: "The Aggie Robotics board",
+    src: "/team/board-26-27.jpg",
   },
   {
-    id: "officer-25-26",
+    id: "officer-26-27",
     year: "2026-2027",
     group: "officers",
     alt: "The Aggie Robotics officer team",
-    src: "/team/officer-25-26.JPG",
+    src: "/team/officer-26-27.JPG",
   },
   {
-    id: "whoop-25-26",
+    id: "whoop-26-27",
     year: "2026-2027",
     group: "VEXU",
     alt: "The WHOOP VEXU team",
-    src: "/team/whoop-25-26.JPG",
+    src: "/team/whoop-26-27.JPG",
   },
   {
-    id: "acr-25-26",
+    id: "acr-26-27",
     year: "2026-2027",
     group: "Combat",
     alt: "Aggie Combat Robotics",
-    src: "/team/acr-25-26.JPG",
+    src: "/team/acr-26-27.JPG",
   },
   {
-    id: "marketing-25-26",
+    id: "business-26-27",
     year: "2026-2027",
     group: "Marketing",
-    alt: "The Aggie Robotics marketing team",
-    src: "/team/marketing-25-26.JPG",
+    alt: "The Aggie Robotics business team",
+    src: "/team/business-26-27.JPG",
   },
 ];
 
