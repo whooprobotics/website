@@ -17,7 +17,7 @@ export default function PersonCard({ person }: { person: LeadershipWithRole }) {
           alt={person.name}
           width={400}
           height={400}
-          className="w-40 h-40 object-cover rounded-full shadow-soft ring-2 ring-primary/10"
+          className="w-40 h-40 object-cover rounded-full shadow-soft ring-2 ring-primary/10 brightness-110"
         />
       ) : (
         <div

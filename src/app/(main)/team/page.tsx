@@ -56,7 +56,7 @@ export default async function Team() {
       <LeadershipGrid
         id="board"
         title="BOARD"
-        description="The executive team that sets the direction of the organization."
+        // description="Our board works on managing the logistics and ensuring the success of the organization."
         photoSrc={boardPhoto?.src}
         photoAlt={boardPhoto?.alt}
         people={board}
@@ -70,7 +70,7 @@ export default async function Team() {
               OFFICERS
             </h2>
             <p className="text-lg font-secondary text-white/90 mt-1 max-w-3xl">
-              Officers lead day-to-day work in each program. Browse by group, or visit a program page to learn what that team does.
+              {/* Each of our officers help manage a different subteam within our different teams. */}
             </p>
           </div>
           <div className="mt-8">
