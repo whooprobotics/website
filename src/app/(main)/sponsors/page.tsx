@@ -42,7 +42,7 @@ export default function Sponsors() {
     <main className="flex flex-col">
       <div className="relative flex h-80 flex-col items-center justify-center overflow-hidden hero-scrim">
         <Image
-          src="/team/org-25-26.jpg"
+          src="/team/org-2-26-27.jpg"
           alt="The Aggie Robotics organization at Texas A&M University"
           fill
           style={{ objectFit: "cover" }}
