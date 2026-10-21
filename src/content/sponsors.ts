@@ -260,6 +260,20 @@ export const sponsors: Sponsor[] = [
     href: "https://renaissanceglobalservices.com/",
     logo: "/sponsors/rgs.jpg",
     // wide: true,
+  },
+  {
+    id: "siempre-natural",
+    name: "Siempre Natural",
+    tier: "silver",
+    href: "https://siemprenatural.toast.site/",
+    logo: "/sponsors/siempre-natural.jpeg"
+  },
+  {
+    id: "online-metals",
+    name: "Online Metals",
+    tier: "bronze",
+    href: "https://onlinemetals.com/",
+    logo: "/sponsors/online-metals.svg"
   }
 ];
 
