@@ -1,5 +1,5 @@
 export type LeadershipType = "Board" | "Officer" | "Intern";
-export type LeadershipGroup = "VEXU" | "Combat" | "Marketing";
+export type LeadershipGroup = "VEXU" | "Combat" | "Business";
 
 export type YearEntry =
     | { position: string; type: "Board" | "Intern" }
@@ -27,5 +27,8 @@ export interface TeamPhoto {
     src?: string;
     alt: string;
     year: string;
-    group: "org" | "board" | "officers" | "VEXU" | "Combat" | "Marketing";
+    group: "org" | "board" | "officers" | "VEXU" | "Combat" | "Business";
+    /** Intrinsic pixel size. The team page uses this so banners keep the photo's aspect ratio. */
+    width: number;
+    height: number;
 }

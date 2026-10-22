@@ -5,9 +5,19 @@ interface TeamBannerProps {
   alt: string;
   label?: string;
   inverted?: boolean;
+  /** Intrinsic pixel size. The frame follows this ratio so the photo is not cropped. */
+  width?: number;
+  height?: number;
 }
 
-export default function TeamBanner({ src, alt, label, inverted = false }: TeamBannerProps) {
+export default function TeamBanner({
+  src,
+  alt,
+  label,
+  inverted = false,
+  width = 2048,
+  height = 1364,
+}: TeamBannerProps) {
   if (!src) {
     return (
       <div
@@ -29,9 +39,15 @@ export default function TeamBanner({ src, alt, label, inverted = false }: TeamBa
   }
 
   return (
-    <div className="relative w-full h-64 md:h-80 overflow-hidden rounded-2xl shadow-card ring-1 ring-black/5">
-      <Image src={src} alt={alt} fill className="object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-white/5" />
+    <div className="w-full overflow-hidden rounded-2xl shadow-card ring-1 ring-black/5">
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes="(min-width: 1280px) 1200px, 100vw"
+        className="block h-auto w-full"
+      />
     </div>
   );
 }

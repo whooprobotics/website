@@ -28,7 +28,7 @@ const GROUPS = new Set<LeadershipGroup>(LEADERSHIP_GROUPS);
 const TYPES = new Set<LeadershipType>(["Board", "Officer", "Intern"]);
 
 function emptyGroups(): Record<LeadershipGroup, LeadershipWithRole[]> {
-  return { VEXU: [], Combat: [], Marketing: [] };
+  return { VEXU: [], Combat: [], Business: [] };
 }
 
 function bySortThenName(a: LeadershipWithRole, b: LeadershipWithRole) {
