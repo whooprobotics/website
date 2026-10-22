@@ -47,8 +47,8 @@ export default async function Team() {
         <div className="mx-auto w-full max-w-7xl px-6 md:px-10 flex flex-col gap-5">
           <h2 className="text-4xl md:text-5xl font-primary text-primary heading-rule">LEADERSHIP</h2>
           <p className="text-lg font-secondary text-body max-w-3xl">
-            Aggie Robotics is led by a Board of Directors and officers across VEXU — WHOOP, Aggie Combat Robotics, and Marketing.
-            Meet the {CURRENT_YEAR} leadership team below.
+            Aggie Robotics is led by our Board and Officer teams across our VEXU team WHOOP, Aggie Combat Robotics, and our business team.
+            Meet the {CURRENT_YEAR} leadership team below!
           </p>
         </div>
       </section>
@@ -59,6 +59,8 @@ export default async function Team() {
         // description="Our board works on managing the logistics and ensuring the success of the organization."
         photoSrc={boardPhoto?.src}
         photoAlt={boardPhoto?.alt}
+        photoWidth={boardPhoto?.width}
+        photoHeight={boardPhoto?.height}
         people={board}
         tinted
       />
@@ -79,6 +81,8 @@ export default async function Team() {
               alt={officersPhoto?.alt ?? "Officer team"}
               label="Officer Team"
               inverted
+              width={officersPhoto?.width}
+              height={officersPhoto?.height}
             />
           </div>
         </div>
@@ -94,6 +98,8 @@ export default async function Team() {
             title={displayName.toUpperCase()}
             photoSrc={photo?.src}
             photoAlt={photo?.alt}
+            photoWidth={photo?.width}
+            photoHeight={photo?.height}
             people={officersByGroup[group]}
             programHref={PROGRAM_HREFS[group]}
             programLabel={`About ${displayName}`}
@@ -109,7 +115,7 @@ export default async function Team() {
 export const metadata: Metadata = pageMetadata({
   title: "Team & Officers",
   description:
-    "Meet the executive board and officers behind Aggie Robotics at Texas A&M University — the students leading VEX U, combat robotics, marketing, and outreach.",
+    "Meet the executive board and officers behind Aggie Robotics at Texas A&M University — the students leading VEX U, combat robotics, business, and outreach.",
   path: "/team",
   keywords: ["Aggie Robotics officers", "Aggie Robotics team", "Texas A&M robotics leadership"],
 });

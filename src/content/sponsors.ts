@@ -274,6 +274,20 @@ export const sponsors: Sponsor[] = [
     tier: "bronze",
     href: "https://onlinemetals.com/",
     logo: "/sponsors/online-metals.svg"
+  },
+  {
+    id: "fabworks",
+    name: "Fabworks",
+    tier: "bronze",
+    href: "https://www.fabworks.com/",
+    logo: "/sponsors/fabworks.png"
+  },
+  {
+    id: "repeat-robotics",
+    name: "Repeat Robotics",
+    tier: "bronze",
+    href: "https://repeat-robotics.com/",
+    logo: "/sponsors/repeat-robotics.png"
   }
 ];
 

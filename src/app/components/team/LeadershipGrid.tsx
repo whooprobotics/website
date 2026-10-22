@@ -9,6 +9,8 @@ interface LeadershipGridProps {
   description?: string;
   photoSrc?: string;
   photoAlt?: string;
+  photoWidth?: number;
+  photoHeight?: number;
   people: LeadershipWithRole[];
   programHref?: string;
   programLabel?: string;
@@ -23,6 +25,8 @@ export default function LeadershipGrid({
   description,
   photoSrc,
   photoAlt,
+  photoWidth,
+  photoHeight,
   people,
   programHref,
   programLabel,
@@ -63,17 +67,36 @@ export default function LeadershipGrid({
             </Link>
           ) : null}
         </div>
-        <TeamBanner src={photoSrc} alt={photoAlt ?? title} label={title} inverted={inverted} />
         {people.length === 0 ? (
-          <p
-            className={`font-secondary text-lg text-center mt-8 ${
-              inverted ? "text-white/80" : "text-muted"
-            }`}
-          >
-            {emptyMessage ?? "Officers for this group will be announced soon."}
-          </p>
+          <>
+            <TeamBanner
+              src={photoSrc}
+              alt={photoAlt ?? title}
+              label={title}
+              inverted={inverted}
+              width={photoWidth}
+              height={photoHeight}
+            />
+            <p
+              className={`font-secondary text-lg text-center mt-8 ${
+                inverted ? "text-white/80" : "text-muted"
+              }`}
+            >
+              {emptyMessage ?? "Officers for this group will be announced soon."}
+            </p>
+          </>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="sm:col-span-2 lg:col-span-3 xl:col-span-2">
+              <TeamBanner
+                src={photoSrc}
+                alt={photoAlt ?? title}
+                label={title}
+                inverted={inverted}
+                width={photoWidth}
+                height={photoHeight}
+              />
+            </div>
             {people.map((person) => (
               <PersonCard key={person.name} person={person} />
             ))}

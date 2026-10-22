@@ -10,13 +10,13 @@ import { pageMetadata } from "@/src/lib/seo";
 
 export const revalidate = 60;
 
-export default async function Marketing() {
-  const officers = (await getOfficersByGroup(CURRENT_YEAR)).Marketing;
-  const teamPhoto = getTeamPhoto(CURRENT_YEAR, "Marketing");
+export default async function Business() {
+  const officers = (await getOfficersByGroup(CURRENT_YEAR)).Business;
+  const teamPhoto = getTeamPhoto(CURRENT_YEAR, "Business");
 
   return (
     <main className="flex flex-col justify-center">
-      <PageHeader title="MARKETING" />
+      <PageHeader title="BUSINESS" />
 
       <section className="w-full brand-band py-16 text-white">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -25,7 +25,7 @@ export default async function Marketing() {
               WHAT WE DO
             </h2>
             <p className="text-lg font-secondary text-white/90 max-w-2xl">
-              The Marketing team supports Aggie Robotics competition programs and grows the organization.
+              The Business team supports Aggie Robotics competition programs and grows the organization.
               We plan events, create graphics, run social media, staff Aggie Robotics booths at campus and
               community events, help with recruitment, and design team merchandise including t-shirts.
             </p>
@@ -33,9 +33,11 @@ export default async function Marketing() {
           <div>
             <TeamBanner
               src={teamPhoto?.src}
-              alt={teamPhoto?.alt ?? "Marketing team"}
-              label="Marketing Team"
+              alt={teamPhoto?.alt ?? "Business team"}
+              label="Business Team"
               inverted
+              width={teamPhoto?.width}
+              height={teamPhoto?.height}
             />
           </div>
         </div>
@@ -49,17 +51,17 @@ export default async function Marketing() {
                 MEET THE OFFICERS
               </h2>
               <p className="text-lg font-secondary text-body mt-1 max-w-2xl">
-                Marketing officers lead events, public relations, sponsorship, and media. The full team
+                Business officers lead events, public relations, sponsorship, and media. The full team
                 appears in the photo above.
               </p>
             </div>
-            <Link href="/team#marketing" className="btn btn-ghost font-primary text-lg">
+            <Link href="/team#business" className="btn btn-ghost font-primary text-lg">
               See all leadership
             </Link>
           </div>
           {officers.length === 0 ? (
             <p className="font-secondary text-lg text-center text-muted">
-              Marketing officers will be announced soon.
+              Business officers will be announced soon.
             </p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -75,8 +77,8 @@ export default async function Marketing() {
 }
 
 export const metadata: Metadata = pageMetadata({
-  title: "Marketing",
+  title: "Business",
   description:
-    "The marketing team of Aggie Robotics at Texas A&M University runs events, graphics, social media, booths, recruitment, and merchandise for the organization.",
-  path: "/marketing",
+    "The business team of Aggie Robotics at Texas A&M University runs events, graphics, social media, booths, recruitment, and merchandise for the organization.",
+  path: "/business",
 });
