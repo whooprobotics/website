@@ -19,7 +19,7 @@ const pastRobots = [
 ];
 
 export default function Home() {
-  const marketingPhoto = getTeamPhoto(CURRENT_YEAR, "Marketing");
+  const businessPhoto = getTeamPhoto(CURRENT_YEAR, "Business");
 
   const programs = [
     {
@@ -49,14 +49,14 @@ export default function Home() {
       },
     },
     {
-      title: "Marketing",
-      href: "/marketing",
-      cta: "About Marketing",
-      body: "To help support our competition teams, Aggie Robotics has a marketing team that focuses on promoting our teams and events through media, outreach, and sponsorship. We are excited to continue growing our marketing efforts in the upcoming season!",
-      image: marketingPhoto?.src
+      title: "Business",
+      href: "/business",
+      cta: "About Business",
+      body: "To help support our competition teams, Aggie Robotics has a business team that focuses on managing the financial and operational aspects of the organization. We are excited to continue growing our business efforts in the upcoming season!",
+      image: businessPhoto?.src
         ? {
-            src: marketingPhoto.src,
-            alt: marketingPhoto.alt ?? "The Aggie Robotics marketing team",
+            src: businessPhoto.src,
+            alt: businessPhoto.alt ?? "The Aggie Robotics business team",
             width: 900,
             height: 900,
             className: "w-auto h-48 object-cover rounded-xl",
@@ -143,7 +143,7 @@ export default function Home() {
               JOIN US
             </h2>
             {/* <p className="text-lg font-secondary text-body max-w-2xl">
-              We are currently looking for new members to join our team! Whether you are interested in VEX U, Combat Robotics, or Marketing, we have a place for you. Apply now to become a part of the Aggie Robotics family!
+              We are currently looking for new members to join our team! Whether you are interested in VEX U, Combat Robotics, or Business, we have a place for you. Apply now to become a part of the Aggie Robotics family!
             </p> */}
             <p className="text-lg font-secondary text-body max-w-2xl">
               Applications are currently closed for the 2026-2027 season. Please check our Instagram page for updates on when applications will open again! If you have any questions or concerns, please reach out to us on our <Link href="https://www.instagram.com/aggie.robotics/" target="_blank" rel="noopener noreferrer">Instagram page</Link> or email us at <Link href="mailto:aggieroboticstx@gmail.com" target="_blank" rel="noopener noreferrer">aggieroboticstx@gmail.com</Link>.
