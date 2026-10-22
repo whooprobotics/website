@@ -18,7 +18,7 @@ const menuItems: NavItem[] = [
     children: [
       { label: "VEXU", href: "/vexu" },
       { label: "Combat Robotics", href: "/combat" },
-      { label: "Marketing", href: "/marketing" },
+      { label: "Business", href: "/business" },
       { label: "Outreach", href: "/outreach" },
     ],
   },

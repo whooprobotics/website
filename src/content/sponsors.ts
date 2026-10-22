@@ -193,12 +193,12 @@ export const sponsors: Sponsor[] = [
     logo: "/sponsors/tc-energy.svg",
     wide: true,
   },
-  { 
-    id: "safetech",
-    name: "SafeTech",
-    tier: "silver",
-    href: "https://www.linkedin.com/company/makesafetech"
-  },
+  // { 
+  //   id: "safetech",
+  //   name: "SafeTech",
+  //   tier: "silver",
+  //   href: "https://www.linkedin.com/company/makesafetech"
+  // },
   // { 
   //   id: "ptel",
   //   name: "PTEL",
