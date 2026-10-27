@@ -135,7 +135,7 @@ export const sponsors: Sponsor[] = [
 
   { id: "rtx", name: "RTX", tier: "silver", href: "https://www.rtx.com", logo: "/sponsors/rtx.svg", wide: true },
   { id: "cat", name: "Caterpillar", tier: "gold", href: "https://www.caterpillar.com", logo: "/sponsors/cat.svg", wide: true },
-  { id: "eaton", name: "Eaton", tier: "gold", href: "https://www.eaton.com", logo: "/sponsors/eaton.svg", wide: true },
+  // { id: "eaton", name: "Eaton", tier: "gold", href: "https://www.eaton.com", logo: "/sponsors/eaton.svg", wide: true },
   {
     id: "tamu-engineering",
     name: "Texas A&M University Engineering",
@@ -144,14 +144,14 @@ export const sponsors: Sponsor[] = [
     logo: "/sponsors/tamu-engineering.svg",
     wide: true,
   },
-  {
-    id: "dfw-urethane",
-    name: "DFW Urethane",
-    tier: "gold",
-    href: "https://dfwurethane.com",
-    logo: "/sponsors/dfw-urethane.png",
-    wide: true,
-  },
+  // {
+  //   id: "dfw-urethane",
+  //   name: "DFW Urethane",
+  //   tier: "gold",
+  //   href: "https://dfwurethane.com",
+  //   logo: "/sponsors/dfw-urethane.png",
+  //   wide: true,
+  // },
   {
     id: "additive",
     name: "Additive at Scale",
