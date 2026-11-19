@@ -24,8 +24,13 @@ const Footer = () => {
                     ))
                 }
             </div>
-            <div>
+            <div className='flex flex-col items-center gap-1.5'>
                 <div className='font-primary text-white/85 text-lg tracking-wide'> &copy; 2026 Aggie Robotics</div>
+                <div className='flex items-center gap-2 font-secondary text-sm text-white/75'>
+                    <Link href='/privacy' className='hover:text-white hover:underline underline-offset-2'>Privacy Policy</Link>
+                    <span aria-hidden='true'>&middot;</span>
+                    <Link href='/terms' className='hover:text-white hover:underline underline-offset-2'>Terms of Service</Link>
+                </div>
             </div>
         </div>
     </footer>
