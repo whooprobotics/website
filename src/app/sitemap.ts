@@ -13,6 +13,8 @@ const routes: Array<{
   { path: "/team", changeFrequency: "monthly", priority: 0.8 },
   { path: "/outreach", changeFrequency: "monthly", priority: 0.8 },
   { path: "/business", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
